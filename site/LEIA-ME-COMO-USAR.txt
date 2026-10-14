@@ -1,0 +1,33 @@
+SITE DE ESTUDO — EMATER-MG / Assistente Administrativo II (banca Fundep)
+=============================================================================
+
+PARA QUEM NÃO ENTENDE DE PROGRAMAÇÃO — É SÓ ISSO:
+1) Receba a pasta "site" (pode vir zipada; se vier zipada, clique com o botão
+   direito > "Extrair tudo").
+2) Abra a pasta "site" e dê DUPLO CLIQUE no arquivo "index.html".
+   Ele abre no navegador (Chrome, Edge, Firefox) como uma página normal.
+3) Não precisa de internet nem instalar nada. Escolha a MATÉRIA e o TEMA
+   que vai cair na prova (ex.: Licitações — Lei 14.133/2021), clique em
+   Modo Estudo ou Simulado e clique na alternativa. Não apague os arquivos
+   "questions.js", "app.js" e "styles.css" — eles fazem a página funcionar.
+   Deixe os 4 arquivos juntos na mesma pasta.
+
+PARA PASSAR PARA OUTRA PESSOA:
+- Envie a pasta "site" inteira (os 4 arquivos). O jeito mais fácil é
+  compactar: botão direito na pasta "site" > "Enviar para" > "Pasta compactada",
+  e mandar o .zip pelo WhatsApp/e-mail. A pessoa extrai e abre o index.html.
+
+O QUE TEM NO SITE:
+- Questões no estilo da banca Fundep (4 alternativas, 1 correta), divididas em
+  Língua Portuguesa, Matemática/Raciocínio Lógico, Conhecimentos Gerais e
+  Conhecimentos Específicos do cargo.
+- Cada questão mostra: a resposta certa e o PORQUÊ, e o porquê de CADA
+  alternativa errada estar errada, além da referência do conteúdo programático.
+- Modo Estudo (explicação na hora) e Simulado (responde tudo e confere no fim,
+  com peso 2 para Conhecimentos Específicos, igual à prova real).
+- Resumo da banca + onde baixar provas antigas da Fundep para o mesmo cargo.
+
+BASE DO CONTEÚDO:
+edital.pdf (regras, datas, Anexo III — Quadro de Provas) e conteudo.pdf
+(Anexo VI — programa de Assistente Administrativo II). Prova em 29/11/2026;
+aprovação com 30+ pontos e sem zerar nenhuma parte.

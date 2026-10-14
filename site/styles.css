@@ -1,0 +1,65 @@
+/* Site de estudo EMATER-MG — visual simples, letra grande, bom para impressão */
+*{box-sizing:border-box}
+body{font-family:Arial,Helvetica,sans-serif;margin:0;background:#f3f5f9;color:#1c2333;line-height:1.55}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+.topo{background:#14532d;color:#fff;padding:22px 0}
+.topo h1{margin:0 0 6px;font-size:1.5rem}
+.topo .sub{margin:0;opacity:.95}
+.painel{background:#fff;border-radius:12px;padding:16px;margin:16px 0;box-shadow:0 1px 4px rgba(0,0,0,.08)}
+.painel h2{margin-top:0;font-size:1.15rem}
+.painel h3{font-size:1rem;margin:14px 0 6px}
+.linha{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+select{font-size:1rem;padding:8px;border-radius:8px;border:1px solid #999}
+.btn{font-size:1rem;padding:10px 14px;border-radius:10px;border:1px solid #14532d;background:#fff;color:#14532d;cursor:pointer}
+.btn.primario{background:#14532d;color:#fff}
+.linha.filtros select{flex:1;min-width:0}
+.subabas{margin-bottom:4px}
+.subabas .btn{flex:1}
+.btn.pequeno{font-size:.9rem;padding:8px 10px}
+.botoes{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:80%;margin:12px auto 0}
+.botoes .btn{width:100%;margin:0}
+@media (max-width:600px){.botoes{width:100%;grid-template-columns:1fr}}
+.btn:hover:not(:disabled){filter:brightness(.95)}
+.btn:disabled{opacity:.4;cursor:default}
+.nav-pag p{margin:0 0 10px}
+.progresso{margin-top:10px;border-top:1px dashed #999;padding-top:8px}
+.prog-grupo{margin:10px 0 2px;font-weight:bold}
+.prog-linha{display:flex;align-items:center;gap:8px;font-size:.85rem;margin:3px 0}
+.prog-nome{flex:0 0 44%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.prog-bar{flex:1;background:#e2e8f0;border-radius:8px;height:12px;overflow:hidden}
+.prog-fill{display:block;height:100%;background:#14532d}
+.prog-num{flex:0 0 32%;text-align:right;color:#444}
+.veredito-aprovado{color:#15803d;font-size:1.2rem}
+.veredito-reprovado{color:#b91c1c;font-size:1.2rem}
+.abas{margin-top:12px;display:flex;gap:10px}
+.aba{font-size:1rem;padding:10px 18px;border-radius:10px 10px 0 0;border:2px solid #fff;border-bottom:none;background:transparent;color:#fff;cursor:pointer;opacity:.75}
+.aba.ativa{background:#f3f5f9;color:#14532d;font-weight:bold;opacity:1}
+table.audit{width:100%;border-collapse:collapse;font-size:.92rem;margin:6px 0}
+table.audit th,table.audit td{border:1px solid #cbd5e1;padding:6px 8px;text-align:left}
+table.audit th{background:#14532d;color:#fff}
+.audit-item td{background:#e2e8f0}
+.check{font-size:.95rem}
+.placar{font-size:1.05rem}
+.dica-banca ul{margin:6px 0;padding-left:20px}
+.fonte{font-size:.85rem;color:#555}
+.questao{background:#fff;border-radius:12px;padding:16px;margin:14px 0;box-shadow:0 1px 4px rgba(0,0,0,.08);border-left:6px solid #999}
+.questao[data-disc="LP"]{border-color:#2563eb}
+.questao[data-disc="MAT"]{border-color:#d97706}
+.questao[data-disc="CG"]{border-color:#059669}
+.questao[data-disc="CE"]{border-color:#7c3aed}
+.meta{font-size:.85rem;color:#444;margin-bottom:6px}
+.enunciado{font-size:1.05rem;font-weight:bold;margin:6px 0 10px;text-align:justify}
+.alt{display:block;width:100%;text-align:justify;font-size:1rem;margin:6px 0;padding:10px 12px;border-radius:10px;border:2px solid #cbd5e1;background:#f8fafc;cursor:pointer}
+.alt:hover:not(:disabled){border-color:#14532d}
+.alt:disabled{cursor:default;opacity:.95}
+.alt.certa{border-color:#15803d;background:#dcfce7;font-weight:bold}
+.alt.errada{border-color:#b91c1c;background:#fee2e2}
+.alt.clicada-errada{outline:3px solid #b91c1c}
+.explica{margin-top:10px;border-top:1px dashed #999;padding-top:10px}
+.explica .ok{color:#15803d}
+mark{background:#fef08a;color:#1c2333;padding:0 3px;border-radius:3px;font-weight:bold}
+.explica .no{color:#b91c1c}
+.explica li{margin-bottom:6px}
+.tag{display:inline-block;font-size:.75rem;font-weight:bold;color:#fff;border-radius:20px;padding:2px 10px;margin-right:6px}
+.tag.LP{background:#2563eb}.tag.MAT{background:#d97706}.tag.CG{background:#059669}.tag.CE{background:#7c3aed}
+@media print{.no-print,.topo .como-usar,.btn,#btnLimpar{display:none!important}.questao{box-shadow:none;border:1px solid #999}}

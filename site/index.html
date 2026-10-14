@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Estudo EMATER-MG — Assistente Administrativo II (Fundep)</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topo">
+  <div class="container">
+    <h1>📚 Estudo EMATER-MG — Assistente Administrativo II</h1>
+    <p class="sub">Banca Fundep • Prova 29/11/2026 • 40 questões (10 LP + 10 MAT + 10 CG + 10 CE) • Aprovação: ≥ 30 pontos e não zerar nenhuma parte</p>
+    <nav class="abas">
+      <button id="abaQuestoes" class="aba ativa">📝 Questões</button>
+      <button id="abaRedacao" class="aba">✍️ Redação TQS</button>
+      <button id="abaAuditoria" class="aba">📊 Auditoria</button>
+      <button id="abaSobre" class="aba">© Sobre</button>
+    </nav>
+  </div>
+</header>
+
+<main class="container" id="view-questoes">
+
+  <section class="painel">
+    <h2>1 — Escolha o modo</h2>
+    <div class="linha filtros">
+      <select id="filtro" aria-label="Matéria">
+        <option value="TODAS">Todas as matérias</option>
+        <option value="LP">Língua Portuguesa</option>
+        <option value="MAT">Matemática e Raciocínio Lógico</option>
+        <option value="CG">Conhecimentos Gerais</option>
+        <option value="CE">Conhecimentos Específicos</option>
+      </select>
+      <select id="filtroTema" aria-label="Tema da prova">
+        <option value="TODOS">Todos os temas</option>
+      </select>
+      <label class="check"><input type="checkbox" id="embaralhar" checked> Embaralhar questões</label>
+    </div>
+    <div class="botoes">
+      <button id="btnEstudo" class="btn primario">📖 Modo Estudo (mostra explicação)</button>
+      <button id="btnSimulado" class="btn primario">⏱️ Simulado (responde tudo, confere no fim)</button>
+      <button id="btnReal" class="btn primario">🎯 Simulado real (40 questões)</button>
+      <button id="btnLimpar" class="btn primario" title="Apaga seu progresso salvo neste navegador">🧹 Limpar progresso</button>
+    </div>
+    <p class="placar">Acertos: <strong id="acertos">0</strong> • Respondidas: <strong id="respondidas">0</strong> • Total na tela: <strong id="total">0</strong></p>
+    <div id="progresso" class="progresso"></div>
+  </section>
+
+  <section id="questoes"></section>
+
+  <section class="painel no-print">
+    <h2>2 — A banca Fundep e provas para treinar</h2>
+    <h3>Como a Fundep cobra (resumo rápido)</h3>
+    <ul>
+      <li>Nesta prova: <strong>4 alternativas (A–D), 1 correta, sem desconto por erro</strong> — não deixe questão em branco.</li>
+      <li>Enunciados curtos; a “pegadinha” está na <strong>alternativa parecida</strong> (troca causa por efeito, inverte condição).</li>
+      <li><strong>Específicos valem 2 pontos</strong> cada (metade da nota em 10 questões). Português: ~45% interpretação.</li>
+      <li>Matemática: porcentagem, regra de três, juros, probabilidade, média + lógica (negação de “todo”, tabelas-verdade).</li>
+    </ul>
+    <p class="fonte">Base: edital.pdf (item 10.4.3 e Anexo III) e conteudo.pdf (Anexo VI). Provas antigas da banca: portal <strong>gestaodeconcursos.com.br</strong>.</p>
+    <h3>Provas da Fundep para treinar depois</h3>
+    <p>Baixe e resolva (mesmo cargo/área, mesma banca). Fonte oficial primeiro:</p>
+    <ol>
+      <li><strong>gestaodeconcursos.com.br</strong> — página de cada concurso → “Provas e gabaritos” (ex.: IFNMG 2016 Assistente em Administração; UFJF e UFSJ Assistente em Administração; ARISB 2019/2025 e UPA 2025 Assistente Administrativo).</li>
+      <li><strong>gabarite.com.br → Provas → banca “FUNDEP Gestão de Concursos”</strong> — filtros por “Assistente Administrativo” (ex.: IPREMU 2021, ARISB 2019, INB 2018).</li>
+      <li>Plataformas de questões (Qconcursos, Estratégia, TecConcursos): filtre <strong>banca = Fundep + cargo = Assistente Administrativo</strong>, nível médio.</li>
+    </ol>
+  </section>
+
+</main>
+
+<main class="container" id="view-auditoria" hidden>
+  <section class="painel">
+    <h2>📊 Auditoria do banco de questões</h2>
+    <p>Cobertura do <strong>conteudo.pdf (Anexo VI)</strong> calculada ao vivo sobre as questões do site, detalhada por subitem (1.1, 2.3, 6.2…). Legenda: ✅ 10 ou mais • ⚠️ 5 a 9 • ❌ menos de 5. Contagens podem somar mais que o total, pois uma questão pode tocar mais de um subitem.</p>
+    <div id="auditoriaBox"></div>
+  </section>
+</main>
+
+<main class="container" id="view-redacao" hidden>
+
+  <section class="painel">
+    <h2>✍️ Redação para concurso — método TQS</h2>
+    <p class="fonte">⚠️ Aviso: o concurso EMATER-MG 01/2026 <strong>não cobra prova discursiva</strong> (só objetiva). Esta aba treina redação para outros concursos.</p>
+    <h3>1 — "Tem Que Saber" (sua função pedagógica)</h3>
+    <p>O "Tem Que Saber" é o alerta de que esta estrutura é indispensável para não zerar nem perder pontos nos critérios da banca. Antes de escrever, monte no rascunho <strong>duas tabelas de vocabulário</strong> (lado positivo × lado negativo) e distribua o texto na dialética <strong>T–Q–S</strong>:</p>
+    <ul>
+      <li><strong>T — Tese / Tabela:</strong> mapeie as ideias nas duas tabelas e defina sua tese (posição clara sobre o tema).</li>
+      <li><strong>Q — Questionamento / Qualidade:</strong> desenvolva os dois lados — o positivo (qualidades, avanços) <em>versus</em> os problemas (negativos, desafios).</li>
+      <li><strong>S — Síntese / Solução:</strong> junte as duas tabelas no encerramento com posicionamento crítico + <strong>proposta de intervenção</strong> (agente + ação + meio + finalidade).</li>
+    </ul>
+    <h3>2 — O mnemônico TQS (roteiro mental obrigatório)</h3>
+    <ul>
+      <li><strong>T – Tese / Tema:</strong> identifique o tema e liste o repertório positivo e negativo (as duas tabelas).</li>
+      <li><strong>Q – Questionamento (contraponto):</strong> parágrafo 1 = aspectos positivos; parágrafo 2 = aspectos negativos.</li>
+      <li><strong>S – Síntese:</strong> una as duas tabelas no encerramento com visão crítica.</li>
+    </ul>
+    <h3>3 — Passo a passo no rascunho (5 minutos)</h3>
+    <ol>
+      <li>Leia o tema e escreva a tese em 1 frase.</li>
+      <li>Monte a tabela <strong>(+) Positivos:</strong> 3–4 repertórios (leis, dados, exemplos, autoridades).</li>
+      <li>Monte a tabela <strong>(−) Negativos:</strong> 3–4 problemas, causas e consequências.</li>
+      <li>Parágrafo 1: desenvolva o lado (+) com conectivos de adição e explicação.</li>
+      <li>Parágrafo 2: desenvolva o lado (−) com conectivos de contraste ("contudo", "no entanto").</li>
+      <li>Parágrafo 3: síntese + proposta completa (quem faz, o quê, como, para quê).</li>
+    </ol>
+    <h3>4 — Variações do mesmo macete</h3>
+    <ul>
+      <li><strong>TQP — "Tem Que Provar":</strong> Tese + Qualificação (do argumento) + Prova (exemplo/dado que comprova).</li>
+      <li><strong>TQC — "Tese, Contexto e Conclusão":</strong> apresente a tese, contextualize com repertório e conclua retomando a tese.</li>
+    </ul>
+  </section>
+
+  <section class="painel">
+    <h2>📋 Exemplos de redação com a técnica TQS</h2>
+    <p>Modelo de 3 parágrafos (T → Q → S). Leia cada exemplo identificando as tabelas (+) e (−).</p>
+
+    <article class="questao" data-disc="CG">
+      <div class="meta"><span class="tag CG">REDAÇÃO 1</span><strong> Agricultura familiar e segurança alimentar</strong></div>
+      <p><strong>Tese:</strong> a agricultura familiar é base da segurança alimentar, mas precisa de apoio técnico para crescer.</p>
+      <p><strong>Tabela (+):</strong> gera emprego no campo; produz alimentos diversificados; PNAE/PAA garantem compra pública. <strong>Tabela (−):</strong> falta de assistência técnica; crédito insuficiente; perdas por falta de armazenagem.</p>
+      <p><strong>P1 (T+Q positivo):</strong> A agricultura familiar responde por parte expressiva dos alimentos que chegam à mesa, gerando emprego e renda no meio rural. Programas como o PNAE e o PAA, ao comprarem da produção familiar, fortalecem esse ciclo virtuoso entre campo e cidade.</p>
+      <p><strong>P2 (Q negativo):</strong> Contudo, o pequeno produtor enfrenta crédito escasso, pouca assistência técnica e perdas na armazenagem, o que limita sua produtividade e o mantém vulnerável às oscilações do mercado.</p>
+      <p><strong>P3 (S + proposta):</strong> Portanto, é preciso unir produção e apoio: cabe ao poder público ampliar a assistência técnica e extensão rural (como a prestada pela EMATER-MG), por meio de visitas técnicas e capacitação, a fim de elevar a produtividade e consolidar a segurança alimentar.</p>
+    </article>
+
+    <article class="questao" data-disc="CG">
+      <div class="meta"><span class="tag CG">REDAÇÃO 2</span><strong> Tecnologia no campo e extensão rural</strong></div>
+      <p><strong>Tese:</strong> a tecnologia aumenta a produtividade rural, desde que chegue ao pequeno produtor com orientação.</p>
+      <p><strong>Tabela (+):</strong> irrigação e sementes melhores; informação climática; gestão da propriedade. <strong>Tabela (−):</strong> exclusão digital no campo; custo dos equipamentos; resistência a mudanças.</p>
+      <p><strong>P1:</strong> Ferramentas como irrigação eficiente, previsão climática e controle de custos permitem produzir mais com menos recursos, e a gestão moderna da propriedade transforma dados em decisões.</p>
+      <p><strong>P2:</strong> No entanto, grande parte dos agricultores familiares segue sem internet e sem recursos para investir, de modo que a tecnologia, sozinha, aprofunda a distância entre grandes e pequenos produtores.</p>
+      <p><strong>P3:</strong> Logo, a saída é levar tecnologia com mediação humana: compete aos serviços de extensão rural difundir práticas acessíveis, mediante dias de campo e demonstrações, para que a inovação alcance quem mais precisa.</p>
+    </article>
+
+    <article class="questao" data-disc="CG">
+      <div class="meta"><span class="tag CG">REDAÇÃO 3</span><strong> Produção agropecuária e preservação ambiental</strong></div>
+      <p><strong>Tese:</strong> produzir e preservar são objetivos compatíveis quando há manejo adequado e fiscalização.</p>
+      <p><strong>Tabela (+):</strong> técnicas de conservação do solo; reserva legal e APPs; mercado paga mais por produto sustentável. <strong>Tabela (−):</strong> desmatamento ilegal; contaminação por agrotóxicos; fiscalização insuficiente.</p>
+      <p><strong>P1:</strong> O manejo correto do solo, o respeito às áreas de preservação e a adoção de boas práticas mostram que a agropecuária pode crescer sem destruir a base natural que a sustenta, conquistando ainda mercados mais exigentes.</p>
+      <p><strong>P2:</strong> Todavia, persistem o desmatamento irregular e o uso inadequado de defensivos, agravados pela fiscalização limitada, com danos à água, ao solo e à saúde.</p>
+      <p><strong>P3:</strong> Assim, impõe-se conciliar campo e ambiente: cabe ao Estado fortalecer a fiscalização e incentivar práticas sustentáveis, por meio de crédito condicionado a critérios ambientais, garantindo produção com preservação.</p>
+    </article>
+
+    <article class="questao" data-disc="CG">
+      <div class="meta"><span class="tag CG">REDAÇÃO 4</span><strong> Ética e transparência no serviço público</strong></div>
+      <p><strong>Tese:</strong> a transparência fortalece a confiança no Estado, mas exige servidores preparados e controle efetivo.</p>
+      <p><strong>Tabela (+):</strong> publicidade como regra; acesso à informação; participação e controle social. <strong>Tabela (−):</strong> nepotismo e conflito de interesses; dados mal protegidos; cultura do sigilo.</p>
+      <p><strong>P1:</strong> Com a publicidade como regra e instrumentos como a Lei de Acesso à Informação, o cidadão fiscaliza atos e gastos, o que inibe desvios e aproxima Estado e sociedade.</p>
+      <p><strong>P2:</strong> Porém, práticas como o nepotismo e o uso indevido de dados mostram que a norma, sem cultura de integridade e sem proteção de dados, não basta para moralizar a gestão.</p>
+      <p><strong>P3:</strong> Por isso, transparência precisa virar rotina: cabe a cada órgão capacitar servidores em ética e proteção de dados, mediante códigos de conduta e canais de denúncia, a fim de consolidar uma administração íntegra e confiável.</p>
+    </article>
+
+    <article class="questao" data-disc="CG">
+      <div class="meta"><span class="tag CG">REDAÇÃO 5</span><strong> Sucessão familiar no campo</strong></div>
+      <p><strong>Tese:</strong> a permanência do jovem no campo depende de renda, formação e qualidade de vida.</p>
+      <p><strong>Tabela (+):</strong> agroindústria familiar agrega valor; internet amplia mercados; políticas para juventude rural. <strong>Tabela (−):</strong> êxodo juvenil; envelhecimento do produtor; falta de lazer e serviços.</p>
+      <p><strong>P1:</strong> Quando o jovem agrega valor à produção, acessa novos mercados pela internet e encontra políticas de apoio, o campo deixa de ser destino sem futuro e passa a ser projeto de vida.</p>
+      <p><strong>P2:</strong> Entretanto, a falta de renda estável, de formação e de serviços básicos empurra a juventude para a cidade, envelhecendo o campo e ameaçando a continuidade das propriedades.</p>
+      <p><strong>P3:</strong> Desse modo, fixar o jovem exige conjunto de ações: poder público e entidades de extensão devem oferecer crédito, capacitação e infraestrutura, por meio de programas de juventude rural, assegurando a sucessão no campo.</p>
+    </article>
+  </section>
+
+</main>
+
+<main class="container" id="view-sobre" hidden>
+  <section class="painel">
+    <h2>© Analista de Sistemas: PRINCE, K.B</h2>
+    <p>Site de estudos para o concurso EMATER-MG 01/2026 — Assistente Administrativo II (banca Fundep). Material de estudo de uso livre nos termos da licença abaixo.</p>
+    <h3>Breve histórico</h3>
+    <p>Sou Analista de Sistemas e criei este site como material de apoio aos estudos para concursos — começando pelo EMATER-MG 01/2026. A ideia é simples: questões organizadas por tema, com explicação do porquê de cada resposta, funcionando até sem internet.</p>
+    <h3>Contatos</h3>
+    <ul>
+      <li>E-mail: <a href="mailto:klayton.prince.ms@gmail.com">klayton.prince.ms@gmail.com</a></li>
+      <li>Telefone/WhatsApp: <a href="https://wa.me/5535987135649?text=Preciso%20de%20ajuda%20com%20o%20sistema%20de%20Estudos%20da%20EMATER-MG" target="_blank" rel="noopener">+55 35 98713-5649</a></li>
+      <li>Site pessoal: <a href="https://klaytonprincems.github.io/site/" target="_blank" rel="noopener">Acesse aqui</a></li>
+    </ul>
+    <h3>Licença MIT — Português (tradução livre; o texto em inglês prevalece)</h3>
+    <p>Copyright (c) 2026 PRINCE, K.B</p>
+    <p>É concedida permissão, gratuitamente, a qualquer pessoa que obtenha uma cópia deste material, para utilizá-lo sem restrições, incluindo, sem limitação, os direitos de usar, copiar, modificar, mesclar, publicar, distribuir e vender cópias, desde que o aviso de copyright e este aviso de permissão constem em todas as cópias ou partes substanciais do material.</p>
+    <p>O MATERIAL É FORNECIDO "COMO ESTÁ", SEM GARANTIA DE NENHUM TIPO, EXPRESSA OU IMPLÍCITA, INCLUINDO, MAS NÃO SE LIMITANDO A, GARANTIAS DE COMERCIALIZAÇÃO, ADEQUAÇÃO A UM FIM ESPECÍFICO E NÃO VIOLAÇÃO. EM NENHUMA HIPÓTESE OS AUTORES SERÃO RESPONSÁVEIS POR QUALQUER RECLAMAÇÃO, DANO OU OUTRA RESPONSABILIDADE, SEJA EM AÇÃO CONTRATUAL, DELITO OU DE OUTRA FORMA, DECORRENTE DO MATERIAL OU DO USO DELE.</p>
+    <h3>MIT License — English (official text)</h3>
+    <p>Copyright (c) 2026 PRINCE, K.B</p>
+    <p>Permission is hereby granted, free of charge, to any person obtaining a copy of this material, to deal in it without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies, and to permit persons to whom it is furnished to do so, subject to the inclusion of the above copyright notice and this permission notice in all copies or substantial portions of the material.</p>
+    <p>THE MATERIAL IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE MATERIAL OR THE USE OR OTHER DEALINGS IN THE MATERIAL.</p>
+  </section>
+</main>
+
+<script src="questions.js"></script>
+<script src="banco-lp-leitura.js"></script>
+<script src="banco-lp-explicitas.js"></script>
+<script src="banco-lp-coesao.js"></script>
+<script src="banco-lp-concordancia.js"></script>
+<script src="banco-lp-semantica.js"></script>
+<script src="banco-mat-porcentagem.js"></script>
+<script src="banco-mat-juros.js"></script>
+<script src="banco-mat-equacoes.js"></script>
+<script src="banco-mat-probabilidade.js"></script>
+<script src="banco-mat-logica.js"></script>
+<script src="banco-cg-emater.js"></script>
+<script src="banco-cg-etica.js"></script>
+<script src="banco-cg-lgpd.js"></script>
+<script src="banco-cg-minas.js"></script>
+<script src="banco-cg-atualidades.js"></script>
+<script src="banco-ce-rh.js"></script>
+<script src="banco-ce-licitacoes.js"></script>
+<script src="banco-ce-estoques.js"></script>
+<script src="banco-ce-adm.js"></script>
+<script src="banco-ce-documentos.js"></script>
+<script src="banco-lp-leitura2.js"></script>
+<script src="banco-lp-explicitas2.js"></script>
+<script src="banco-lp-coesao2.js"></script>
+<script src="banco-lp-concordancia2.js"></script>
+<script src="banco-lp-semantica2.js"></script>
+<script src="banco-mat-porcentagem2.js"></script>
+<script src="banco-mat-juros2.js"></script>
+<script src="banco-mat-equacoes2.js"></script>
+<script src="banco-mat-probabilidade2.js"></script>
+<script src="banco-mat-logica2.js"></script>
+<script src="banco-cg-emater2.js"></script>
+<script src="banco-cg-etica2.js"></script>
+<script src="banco-cg-lgpd2.js"></script>
+<script src="banco-cg-minas2.js"></script>
+<script src="banco-cg-atualidades2.js"></script>
+<script src="banco-ce-rh2.js"></script>
+<script src="banco-ce-licitacoes2.js"></script>
+<script src="banco-ce-estoques2.js"></script>
+<script src="banco-ce-adm2.js"></script>
+<script src="banco-ce-documentos2.js"></script>
+<script src="banco-mat-geometria.js"></script>
+<script src="banco-mat-algebra2.js"></script>
+<script src="banco-mat-conjuntos.js"></script>
+<script src="banco-mat-reforco.js"></script>
+<script src="banco-mat-algebra3.js"></script>
+<script src="banco-mat-fund.js"></script>
+<script src="banco-mat-equacoes3.js"></script>
+<script src="banco-mat-seq.js"></script>
+<script src="banco-mat-geo2.js"></script>
+<script src="banco-mat-geo3.js"></script>
+<script src="banco-mat-prob2.js"></script>
+<script src="banco-mat-logica3.js"></script>
+<script src="banco-lp-semantica3.js"></script>
+<script src="banco-lp-discurso3.js"></script>
+<script src="banco-lp-discurso4.js"></script>
+<script src="banco-lp-discurso5.js"></script>
+<script src="banco-lp-texto.js"></script>
+<script src="banco-lp-gramatica.js"></script>
+<script src="banco-lp-sintaxe.js"></script>
+<script src="banco-lp-gramatica.js"></script>
+<script src="banco-lp-discurso.js"></script>
+<script src="banco-lp-ortografia.js"></script>
+<script src="banco-lp-discurso2.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

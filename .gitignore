@@ -1,0 +1,6 @@
+# PDFs do concurso não sobem para o GitHub (dados pessoais e arquivos pesados).
+# Se um dia precisar do conteúdo programático no repo, libere só ele:
+#   git add -f conteudo.pdf
+*.pdf
+# Instruções internas do agente: ficam só nesta máquina.
+AGENTS.md
